@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <div id="content">
+
+        <div>
+            <a href="https://kea.dk">KEA</a>
+        </div>
+
+        <div> <a href="https://github.com/">Github</a></div>
+
+        <div>
+            <img src="http://mabe-kea.dk/E19/pics/frog.png" alt="frø">
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script>
+        const content = document.querySelector("#content");
+        const første = document.querySelector("#content div");
+
+        //Vælger en specifik div (nummer 2) ved brug af nth-child af det der er flere af.
+        const anden = document.querySelector("#content div:nth-child(2)");
+
+
+        console.log(content);
+        console.log(første);
+        console.log(anden);
+
+
+
+
+        /*    document.querySelector("#content");
+
+            console.log(document.querySelector("#content"));
+            console.log(document.querySelector("#content div"));
+            console.log(document.querySelector("img"));*/
+    </script>
+</body></html>

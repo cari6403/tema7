@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #grøn {
+            height: 200px;
+            width: 200px;
+            background-color: green;
+            text-align: center;
+            line-height: 200px;
+
+        }
+
+        #rød {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+
+
+        }
+
+        #rød img {
+            padding-top: 25%;
+        }
+
+        #grøn img {
+            padding-top: 25%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="grøn"></div>
+    <div id="rød"></div>
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("Loaded");
+        }
+
+        let cirkel = document.querySelector("#rød");
+        let firkant = document.querySelector("#grøn");
+
+        firkant.innerHTML = "<img src=http://mabe-kea.dk/E19/pics/frog.png>";
+
+        cirkel.innerHTML = "<img src=http://mabe-kea.dk/E19/pics/pig.png>";
+
+        firkant.addEventListener("click", bytPlads);
+
+        function bytPlads() {
+            cirkel.innerHTML = "<img src=http://mabe-kea.dk/E19/pics/frog.png>";
+
+            firkant.innerHTML = "<img src=http://mabe-kea.dk/E19/pics/pig.png>";
+
+            firkant.removeEventListener("click", bytPlads);
+            firkant.addEventListener("click", bytPlads2);
+
+        }
+
+        function bytPlads2() {
+            firkant.innerHTML = "<img src=http://mabe-kea.dk/E19/pics/frog.png>";
+
+            cirkel.innerHTML = "<img src=http://mabe-kea.dk/E19/pics/pig.png>";
+
+            firkant.removeEventListener("click", bytPlads2);
+            firkant.addEventListener("click", bytPlads);
+        }
+
+        cirkel.addEventListener("click", stop);
+
+        function stop() {
+            firkant.removeEventListener("click", bytPlads2);
+            firkant.removeEventListener("click", bytPlads);
+        }
+    </script>
+</body></html>
+
+
+
