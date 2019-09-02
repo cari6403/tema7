@@ -86,7 +86,7 @@
 
 
     <script>
-        let personer = [];
+        let filter = "k";
 
 
         document.addEventListener("DOMContentLoaded", getJson);
@@ -95,20 +95,22 @@
             let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
 
             personer = await jsonData.json();
-            start();
+            visKvinder();
         }
 
 
 
-        function start() {
+        function visKvinder() {
             const dest = document.querySelector("#liste");
             const temp = document.querySelector("template");
             personer.feed.entry.forEach((person) => {
-                const klon = temp.cloneNode(true).content;
-                klon.querySelector("h2").textContent = person.gsx$navn.$t;
-                klon.querySelector("img").src = person.gsx$billede.$t;
-                klon.querySelector("#github").textContent = person.gsx$github.$t;
-                dest.appendChild(klon);
+                if (person.gsx$køn.$t == filter) {
+                    const klon = temp.cloneNode(true).content;
+                    klon.querySelector("h2").textContent = person.gsx$navn.$t;
+                    klon.querySelector("img").src = person.gsx$billede.$t;
+                    klon.querySelector("#github").textContent = person.gsx$github.$t;
+                    dest.appendChild(klon);
+                }
             })
         }
 
