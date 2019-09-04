@@ -83,6 +83,30 @@
         h1 {
             text-align: center;
         }
+
+        #popup {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(202, 150, 211, 0.7);
+            display: none;
+        }
+
+        .indhold {
+            width: 70vw;
+            min-height: 50vh;
+            background: white;
+            margin: 4rem auto;
+            padding: 10px;
+        }
+
+        .lukKnap {
+            position: fixed;
+            right: 0;
+            font-size: 2rem;
+        }
+
     </style>
 </head>
 
@@ -99,6 +123,19 @@
 
         </article>
     </template>
+    <div id="popup">
+
+        <button class="lukKnap">X</button>
+        <section class="indhold">
+            <article class="enkeltPerson">
+                <h2></h2>
+                <img class="popup_pic" src="" alt="">
+                <p class="popup_github">Github:</p>
+
+            </article>
+        </section>
+
+    </div>
 
     <h1>Alle</h1>
     <nav class="menu">
@@ -152,8 +189,25 @@
                     klon.querySelector("img").src = person.gsx$billede.$t;
                     klon.querySelector("#github").textContent = person.gsx$github.$t;
                     dest.appendChild(klon);
+                    dest.lastElementChild.addEventListener("click", () => {
+                        visSingle(person)
+                    });
                 }
             })
+        }
+
+
+        function visSingle(person) {
+            document.querySelector("#popup").style.display = "block";
+            document.querySelector("#popup .lukKnap").addEventListener("click", lukSingle);
+
+            document.querySelector(".enkeltPerson h2").textContent = person.gsx$navn.$t;
+            document.querySelector(".popup_pic").src = person.gsx$billede.$t;
+            document.querySelector("popup_github").textContent = person.gsx$github.$t;
+        }
+
+        function lukSingle() {
+            document.querySelector("#popup").style.display = "none";
         }
 
         function addEventListenersToButtons() {
@@ -175,5 +229,8 @@
             })
             this.classList.add("valgt");
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
