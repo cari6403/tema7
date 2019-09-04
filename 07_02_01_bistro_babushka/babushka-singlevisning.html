@@ -16,13 +16,61 @@
 
         }
 
+
         img {
             width: 100%;
         }
 
         h1 {
             margin-left: 4rem;
+            font-family: sans-serif;
+            font-size: 3.5rem;
         }
+
+        h2 {
+            font-family: sans-serif;
+        }
+
+        p {
+            font-family: sans-serif;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .valgt {
+            background-color: white;
+            color: #a99faf;
+        }
+
+        button {
+            background-color: #a99faf;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+
+            margin-left: 1rem;
+        }
+
+        button:hover {
+            background-color: white;
+            color: #a99faf;
+        }
+
+        article:hover {
+            background-color: rgba(114, 113, 111, 0.46);
+            padding: 1rem;
+        }
+
+
+
+
+
 
         @media screen and (min-width: 600px) {
 
@@ -40,6 +88,8 @@
 
 
 
+
+
         @media screen and (min-width: 1000px) {
 
             #menu_liste {
@@ -47,6 +97,11 @@
                 grid-template-columns: 1fr 1fr 1fr;
 
 
+            }
+
+            button {
+                margin-left: 1rem;
+                font-size: 16px;
             }
 
         }
@@ -60,6 +115,16 @@
 
             }
 
+
+
+            section {
+                margin: 0 auto;
+            }
+
+            h1 {
+                max-width: 1200px;
+                margin: 2rem auto;
+            }
 
         }
     </style>
